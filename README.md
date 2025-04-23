@@ -2,47 +2,47 @@
 
 ---
 
-## 📌 Descriere
+## 📌 Description
 
-Acest proiect implementează un **simulator de browser web** care gestionează tab-uri, istoric de navigare și funcționalități de bază asociate acestora.
+This project implements a **web browser simulator** that manages multiple tabs, navigation history, and essential browser operations.
 
-Aplicația funcționează pe bază de comenzi citite dintr-un fișier (`tema1.in`) și scrie rezultatele în `tema1.out`.
-
----
-
-## ✅ Funcționalități implementate
-
-- 🔄 **Inițializare browser** cu o pagină implicită (`https://acs.pub.ro/`)
-- ➕ **Adăugare tab-uri noi** (`NEW_TAB`)
-- ❌ **Închidere tab** (`CLOSE`)
-- 🔁 **Navigare între tab-uri** (`NEXT`, `PREV`)
-- 🔍 **Selectare tab după ID** (`OPEN id`)
-- 🌐 **Navigare către pagini noi** (`PAGE id`)
-- ↩️ **BACKWARD** – istoric înapoi
-- ↪️ **FORWARD** – istoric înainte
-- 📜 **PRINT_HISTORY id** – afișează istoricul tabului specificat
-- 🖨️ **PRINT** – afișează toate ID-urile tab-urilor și descrierea paginii curente
+The application reads commands from an input file (`tema1.in`) and writes the results to `tema1.out`.
 
 ---
 
-## 🧠 Structuri de date utilizate
+## ✅ Features
 
-- **Listă dublu înlănțuită circulară cu santinelă** pentru tab-uri
-- **Stive (LIFO)** pentru navigarea `BACKWARD` și `FORWARD`
-- **Vector dinamic de pagini (`page[]`)** care se extinde pe măsură ce se citesc din fișier
-
----
-
-## 🗃️ Fișiere
-
-- `tema1.c` – sursa principală
-- `tema1.in` – input-ul de comenzi și pagini
-- `tema1.out` – output-ul rezultat
-- `README.md` – acest fișier
+- 🔄 **Browser initialization** with a default homepage (`https://acs.pub.ro/`)
+- ➕ **Open new tabs** (`NEW_TAB`)
+- ❌ **Close tabs** (`CLOSE`)
+- 🔁 **Navigate between tabs** (`NEXT`, `PREV`)
+- 🔍 **Select a tab by ID** (`OPEN id`)
+- 🌐 **Open a new page in the current tab** (`PAGE id`)
+- ↩️ **BACKWARD** – go back in history
+- ↪️ **FORWARD** – go forward in history
+- 📜 **PRINT_HISTORY id** – display the full history of a specific tab
+- 🖨️ **PRINT** – print all tab IDs and the current page description
 
 ---
 
-## 🧪 Exemple de comenzi în `tema1.in`
+## 🧠 Data Structures Used
+
+- **Doubly linked circular list with a sentinel node** for managing tabs
+- **Stacks (LIFO)** for `BACKWARD` and `FORWARD` history navigation
+- **Dynamic array of pages (`page[]`)** expanded as input is read
+
+---
+
+## 🗃️ Files
+
+- `main.c` – main source file
+- `tema1.in` – input with pages and commands
+- `tema1.out` – output results
+- `README.md` – this file
+
+---
+
+## 🧪 Sample Commands from `tema1.in`
 
 ```txt
 3
@@ -60,3 +60,15 @@ FORWARD
 PRINT
 CLOSE
 PRINT_HISTORY 0
+```
+---
+
+## ⚠️ Notes
+The project handles invalid operations by printing 403 Forbidden.
+
+Proper memory management is implemented using free_all() to prevent memory leaks.
+
+The code is clean, modular, and logically organized by feature.
+
+## 🔚 Conclusion
+This browser tabs simulator demonstrates effective use of doubly linked lists and stacks to manage tab navigation and history — similar to real-world browser behavior.
